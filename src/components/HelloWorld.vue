@@ -17,7 +17,7 @@ export default {
     startSpeechToTxt() {
       // start speech to txt
       var utterance = new SpeechSynthesisUtterance(
-        "Buenos días Patxi! Qué tal estas? Hoy es un buen día para programar. adios!"
+        "Buenos días Patxi! Qué tal estas? Hoy es un buen día para programar. adiós!"
       );
       utterance.lang = "es-ES";
       utterance.rate = -2;
