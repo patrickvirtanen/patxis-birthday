@@ -92,10 +92,11 @@ export default {
   methods: {
     startSpeechToTxt() {
       // start speech to txt
+
       var utterance = new SpeechSynthesisUtterance(
-        "Hej Patchi, Idag är din födelsedag och du har paket som väntar på dig. För att hitta dina paket så måste du svara på olika typer av frågor för att sedan få en ledtråd som hjälper dig hitta paketen. Lycka till!"
+        "Hola Patchi, Hoy es tu cumpleaños y tienes paquetes esperándote. Para encontrar tus paquetes, tienes que responder diferentes tipos de preguntas y luego obtener una pista que te ayude a encontrar los paquetes. ¡Buena suerte!"
       );
-      utterance.lang = "sv-SE";
+      utterance.lang = "es-ES";
       utterance.rate = 0;
       console.log(utterance);
       window.speechSynthesis.speak(utterance);
