@@ -1,28 +1,114 @@
 <template>
-  <div>
-    <button class="big-button" @click="startSpeechToTxt">Play me!</button>
+  <div class="main">
+    <div v-if="currentState === 0">
+      <button class="big-button" @click="startSpeechToTxt">Spela mig!</button>
+      <div>
+        <button class="lets-go" @click="go">Let's go!</button>
+        <audio v-show="false" id="AudioTag" controls>
+          <source src="./../assets/mario.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+    <div v-if="currentState === 1">
+      <questionForm
+        v-if="!showClue"
+        :currentState="currentState"
+        @go-to-clue="showClue = true"
+      />
+      <div v-if="showClue">
+        <p>
+          Din första present ligger i en låda i köket, där du inte visste att du
+          hade köksredskap fören jag visade dig
+        </p>
+        <button @click="changeState">nästa fråga</button>
+      </div>
+    </div>
+    <div v-if="currentState === 2">
+      <questionForm
+        v-if="!showClue"
+        :currentState="currentState"
+        @go-to-clue="showClue = true"
+      />
+      <div v-if="showClue">
+        <p>Ditt andra paket kan du hitta i din julklapp.</p>
+        <button @click="changeState">nästa fråga</button>
+      </div>
+    </div>
+    <div v-if="currentState === 3">
+      <questionForm
+        v-if="!showClue"
+        :currentState="currentState"
+        @go-to-clue="showClue = true"
+      />
+      <div v-if="showClue">
+        <p>Ditt tredje paket finner du där jag brukar lägga mina kläder</p>
+        <button @click="changeState">nästa fråga</button>
+      </div>
+    </div>
+    <div v-if="currentState === 4">
+      <questionForm
+        v-if="!showClue"
+        :currentState="currentState"
+        @go-to-clue="showClue = true"
+      />
+      <div v-if="showClue">
+        <p>Ditt fjärde paket kan du hitta där vi förvarar vår Huel</p>
+        <button @click="changeState">nästa fråga</button>
+      </div>
+    </div>
+    <div v-if="currentState === 5">
+      <questionForm
+        v-if="!showClue"
+        :currentState="currentState"
+        @go-to-clue="showClue = true"
+      />
+      <div v-if="showClue">
+        <p>
+          Ditt femte paket hittar du på den kyligaste platsen hos dig (inte kyl
+          eller frys).
+        </p>
+        <button @click="changeState">Avsluta</button>
+      </div>
+    </div>
+    <div v-if="currentState === 6">
+      <h1>STORT GRATTIS PÅ FÖDELSEDAGEN!</h1>
+    </div>
   </div>
 </template>
 
 <script>
+import questionForm from "./questionForm.vue";
 export default {
+  components: {
+    questionForm,
+  },
   data() {
     return {
-      runtimeTranscription_: "",
-      transcription_: [],
-      lang_: "fr-FR",
+      currentState: 0,
+      showClue: false,
     };
   },
   methods: {
     startSpeechToTxt() {
       // start speech to txt
       var utterance = new SpeechSynthesisUtterance(
-        "Buenos días Patxi! Qué tal estas? Hoy es un buen día para programar. adiós!"
+        "Hej Patchi, Idag är din födelsedag och du har paket som väntar på dig. För att hitta dina paket så måste du svara på olika typer av frågor för att sedan få en ledtråd som hjälper dig hitta paketen. Lycka till!"
       );
-      utterance.lang = "es-ES";
+      utterance.lang = "sv-SE";
       utterance.rate = 0;
       console.log(utterance);
       window.speechSynthesis.speak(utterance);
+    },
+    go() {
+      document.getElementById("AudioTag").play();
+      setTimeout(() => {
+        this.changeState();
+      }, 2000);
+    },
+    changeState() {
+      this.showClue = false;
+      this.currentState++;
     },
   },
 };
@@ -30,19 +116,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.lets-go {
+  margin-top: 4rem;
 }
 button {
   position: relative;
