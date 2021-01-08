@@ -20,7 +20,7 @@ export default {
         "Buenos días Patxi! Qué tal estas? Hoy es un buen día para programar. adiós!"
       );
       utterance.lang = "es-ES";
-      utterance.rate = -2;
+      utterance.rate = 0;
       console.log(utterance);
       window.speechSynthesis.speak(utterance);
     },
