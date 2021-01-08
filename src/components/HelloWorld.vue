@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <p>HEEEEEY</p>
+    <p>Patxis birthday!</p>
   </div>
 </template>
 
