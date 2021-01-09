@@ -94,7 +94,7 @@ export default {
       // start speech to txt
 
       var utterance = new SpeechSynthesisUtterance(
-        "Hola Patchi, Hoy es tu cumpleaños y tienes paquetes esperándote. Para encontrar tus paquetes, tienes que responder diferentes tipos de preguntas y luego obtener una pista que te ayude a encontrar los paquetes. ¡Buena suerte!"
+        "Hola Patchi, Hoy es tu cumpleaños y tienes regalos esperándote. Para encontrar tus regalos, tienes que responder diferentes tipos de preguntas y luego obtener una pista que te ayude a encontrar los regalos. ¡Buena suerte!"
       );
       utterance.lang = "es-ES";
       utterance.rate = 0;
