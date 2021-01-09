@@ -96,7 +96,7 @@ export default {
       var utterance = new SpeechSynthesisUtterance(
         "Hola Patchi, Hoy es tu cumpleaños y tienes paquetes esperándote. Para encontrar tus paquetes, tienes que responder diferentes tipos de preguntas y luego obtener una pista que te ayude a encontrar los paquetes. ¡Buena suerte!"
       );
-      utterance.lang = "es-ES";
+      utterance.lang = "es";
       utterance.rate = 0;
       console.log(utterance);
       window.speechSynthesis.speak(utterance);
