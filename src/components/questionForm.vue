@@ -132,6 +132,7 @@ export default {
 <style scoped>
 .main {
   width: 80%;
+  max-width: 400px;
   height: 50vh;
   margin: 0 auto;
   background-color: rgb(218, 218, 218);
@@ -139,6 +140,7 @@ export default {
 }
 input {
   width: 80%;
+  max-width: 400px;
   border-radius: 5px;
 }
 </style>
